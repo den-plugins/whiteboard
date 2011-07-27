@@ -1,0 +1,56 @@
+<% content_for :header_tags do %>
+    <%= stylesheet_link_tag 'whiteboard', :plugin => 'whiteboard', :media => 'screen, print' %>
+<% end %>
+
+<% html_title @whiteboard.name -%>
+
+<div id="rbwwb_<%= @whiteboard.id %>" class="whiteboard initializing">
+  <div class='header'>
+    <div class='name'><%= @whiteboard.name %> (<%= @whiteboard.items.length %>)<span class='changed_indicator'>*</span></div>
+    <div class='checkboxes_div'>
+      <span class="chart_button_span"><input type='checkbox' name='chart' class='chart_button'/>Show chart</span>
+      <input type='checkbox' name='highlight_related' class='highlight_related_button'/>Highlight related
+      <input type='checkbox' name='autosave' class='autosave_button'/>Auto save (<a href='#' class='savenow_button'>Save now</a>)
+      <input type='checkbox' name='maximize_on_hover' class='maximize_on_hover_button'/>Maximize on hover
+    </div>
+  </div>
+  <div class='body'>
+    <div class='chart' style="display: none"> </div>
+    <%- @whiteboard.columns.each do |column| %>
+    <div id="rbwcol_<%= column.id %>" class="column">
+      <div class="name"><%= column.name %></div>
+      <%- @whiteboard.items.select{|item| item.column_id==column.id}.each do |item| %>
+      <div id="rbwitem_<%= item.id %>" class="item <%= item.type_label %>">
+        <div class='type_flag'> </div>
+        <div class='zoom_button'> </div>
+        <div class='edit_button'> </div>
+        <div class='ok_button'> </div>
+        <div class='cancel_button'> </div>
+        <span class='points_left'><%= item.points_left %></span>
+        <span class='importance'><%= item.priority %>.<%= item.importance %></span>
+        <div class='id'>
+          <a href='/issues/show/<%= item.id %>'>#<%= item.id %></a>
+          <span class='dirty_indicator'>*</span>
+        </div>
+        <div class="form"> </div>
+        <div class='top'>
+          <span class='assigned_to'><%= item.assignee_name_or_empty %></span>
+          <span class='subject'><%=h item.subject %></span>
+        </div>
+        <div class='description'><%=h item.description[0, 50] + "..." %></div>
+      </div>
+      <%- end %>
+    </div>
+    <%- end %>    
+  </div>
+  <div class="initializing_body">
+    Initializing...
+  </div>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+  var d = [<%= @whiteboard.to_json %>];  
+//]]>
+</script>
+<%= javascript_include_tag  'whiteboard', :plugin => 'whiteboard', :cache => 'wb_cache' %>

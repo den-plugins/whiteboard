@@ -1,0 +1,18 @@
+<% content_for :header_tags do %>
+    <%= stylesheet_link_tag 'whiteboard', :plugin => 'whiteboard', :media => 'screen, print' %>
+<% end %>
+<% html_title 'Whiteboards' -%>
+<h2>Select a whiteboard</h2>
+
+<ul class='whiteboard_list'>
+  <li><%= link_to "Product Backlog", 
+                  :controller => 'whiteboards', 
+                  :action => 'show', 
+                  :project_id => params[:project_id] %></li>
+<%- @project.versions.each do |version| %>
+  <li><%= link_to "#{version.name} (#{version.fixed_issues.length})", 
+                  :controller => 'whiteboards', 
+                  :action => 'show', 
+                  :id => version.id %></li>
+<%- end %>
+</ul>

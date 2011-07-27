@@ -1,0 +1,468 @@
+.maximize_on_hover_button, .autorenumber_button, .autosave_button, .chart_button, .highlight_related_button {
+  margin-left: 20px;
+}
+
+ul.whiteboard_list li {
+  list-style: none;
+  width: 300px;
+  height: 50px;
+  margin: 5px 0 5px 0;
+}
+
+ul.whiteboard_list a {
+  position: absolute;
+  padding: 10px 10px 10px 10px;
+  border: 1px solid #333;
+  min-width: 200px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+ul.whiteboard_list a:hover {
+  background-color: #369;
+  text-decoration: none;
+  color: #fff;
+}
+
+.whiteboard {
+  min-height: 500px;
+  overflow: auto;
+  width: 100%;
+  position: absolute;
+  border: 0px;
+  left: 0px;
+}
+
+.whiteboard .header {
+  margin: 0px auto;
+  width: 99%;
+  height: 25px;
+  background-color: #ccc;
+  padding: 2px 2px 2px 2px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.whiteboard .header .name {
+  position: absolute;
+  width: 50%;
+  font-size: 20px;
+  margin: 0 0 0 5px;
+}
+
+.whiteboard .header .changed_indicator {
+  display: inline;
+  color: #f00;
+}
+
+.whiteboard .checkboxes_div {
+  top: 95px;
+  right: 30px;
+  height: 15px;
+  font-size: 10px;
+  padding: 2px 10px 0 0;
+  margin: 5px 0 0 0;
+  text-align: right;
+}
+
+.checkboxes_div input {
+  top: 0px;
+  margin-top: -3px;
+}
+
+.whiteboard .body, .whiteboard .initializing_body {
+  width: 95%;
+  border: 0px solid #f00;
+  margin: 0px auto;
+}
+
+.whiteboard .initializing_body {
+  display: none;
+}
+
+.initializing .body {
+  display: none;
+}
+
+.initializing .initializing_body {
+  display: block;
+  font-size: 18px;
+  text-align: center;
+  width: 50%;
+  height: 25px;
+  background-color: #cfc;
+  margin-top: 20px;
+  padding: 2px 2px 2px 2px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.item .dirty_indicator {
+  display: none;
+}
+
+.item.dirty .dirty_indicator {
+  display: inline;
+}
+
+.dirty_indicator {
+  color: #f00;
+}
+
+.column {
+  min-height: 500px; 
+  width: 200px;
+  padding: 3px;
+  margin: 5px 0 0 -1px;
+  float: left; 
+  border: 1px solid #999;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.column .name {
+  font-size: 14px;
+  text-align: center;
+  padding: 0px 3px 5px 3px;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  margin: 0 0 5px 0;
+  margin-bottom: 1px solid #ddd;
+  background-color: #ccc;
+}
+
+.item {
+  width: 97%;
+  height: 48px;
+  background-color: #fff;
+  padding: 0px 2px 0 2px;
+  margin-bottom: 3px;
+  float: left;
+  cursor: move;
+  font-size: 10px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.item.selected {
+ background-color: #FCFF99; 
+}
+
+.item.highlight {
+ background-color: #c9FFcc; 
+}
+
+.maximize_on_hover:hover, .maximized, .editing {
+  height: 115px;
+}
+
+.item .type_flag {
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 5px;
+  border: 1px solid #0d0;
+  background-color: #0d0;
+  position: absolute;
+}
+
+.rbw_bug .type_flag{
+  border-color: #f33;
+  background-color: #f33;
+}
+
+.rbw_support .type_flag{
+  border-color: #00f;
+  background-color: #00f;
+}
+
+.rbw_task .type_flag{
+  border-color: #666;
+  background-color: #666;
+}
+
+.item .id {
+  position: absolute;
+  left: 10px;
+  top: 3px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.item .top, .item .form {
+  float: left;
+  margin: 18px 0 5px 10px;
+}
+
+.item span.assigned_to {
+  float: left;
+  margin-right: 5px;
+  padding: 0px 3px 0px 3px;
+  background-color: #e0e0e0;
+  -moz-border-radius:3px;
+  border-radius:3px;
+}
+
+.item.owned_by_user span.assigned_to{
+  background-color: #9cf;
+}
+
+.item select.assigned_to {
+  clear: both;
+  font-style: normal;
+  margin: 3px 100px 5px 0;
+  width: 95%;
+}
+
+.item .subject {
+  line-height: 15px;
+}
+
+.item.maximized .subject, .maximize_on_hover:hover .subject {
+  line-height: inherit;
+}
+
+.item .description {
+  display: none;
+}
+
+.item.maximized .description, .maximize_on_hover:hover .description {
+  display: block;
+  float: left;
+  clear: both;
+  margin: 5px 10px 0 8px;
+  width: 95%;
+  padding-top: 3px;
+  border-top: 1px dotted #000;
+}
+
+.item .importance {
+  position: absolute;
+  right: 40px;
+  top: 1px;
+  width: 35px;
+  height: 12px;
+  text-align: center;
+  padding-top: 3px;
+  line-height: 8px;
+  position: absolute;
+  font-size: 9px;
+  font-weight: bold;
+  background-color: #fecfcf;
+  color: #333;
+  -moz-border-radius:3px;
+  border-radius:3px;
+}
+
+.item input.importance {
+  height: 12px;
+  width: 30px;
+  padding-top: 0px;}
+
+.item .points_left {
+  position: absolute;
+  right: 2px;
+  top: 1px;
+  width: 35px;
+  height: 12px;
+  text-align: center;
+  padding-top: 3px;
+  line-height: 8px;
+  position: absolute;
+  font-size: 9px;
+  font-weight: bold;
+  background-color: #fffc90;
+  color: #630;
+  -moz-border-radius:3px;
+  border-radius:3px;
+}
+
+.no_points_left span.points_left {
+  background-color: #ccc;
+}
+
+.item input.points_left {
+  height: 12px;
+  width: 30px;
+  padding-top: 0px;
+}
+
+.item .edit_button, .item .zoom_button {
+  display: none;
+}
+
+.item:hover .edit_button {
+  display: block;
+  z-index: 1000;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 0px;
+  right: 80px;
+  cursor: pointer;
+  background-color: #fff;
+  background-image:url('/images/edit.png');
+  background-repeat: no-repeat;
+  -moz-border-radius:3px;
+  border-radius:3px;
+}
+
+.item:hover .zoom_button {
+  display: block;
+  z-index: 1000;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 0px;
+  right: 110px;
+  cursor: pointer;
+  background-color: #fff;
+  background-image:url('/images/zoom_in.png');
+  background-repeat: no-repeat;
+  -moz-border-radius:3px;
+  border-radius:3px;
+}
+
+.item .ok_button, .item .cancel_button {
+  display: none;
+}
+
+.item.editing .zoom_button, 
+.item.editing .edit_button,  
+.item.editing span.points_left,
+.item.editing span.importance,
+.item.editing span.subject,
+.item.editing span.assigned_to,
+.item.editing div.top {
+  display: none;
+}
+
+
+.item .form {
+  display: none;
+}
+
+.item.editing .form {
+  display: block;
+  margin-top: 20px;
+}
+
+.item.editing .subject {
+  width: 95%;
+  height: 30px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.item.editing .description {
+  display: block;
+  margin-top: 0px;
+  margin-left: 10px;
+}
+
+.item.editing .ok_button {
+  display: block;
+  z-index: 1000;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 0px;
+  right: 110px;
+  cursor: pointer;
+  background-color: #fff;
+  background-image:url('/images/true.png');
+  background-repeat: no-repeat;
+  -moz-border-radius:3px;
+  border-radius:3px;
+}
+
+.item.editing .cancel_button {
+  display: block;
+  z-index: 1000;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 0px;
+  right: 80px;
+  cursor: pointer;
+  background-color: #fff;
+  background-image:url('/images/false.png');
+  background-repeat: no-repeat;
+  -moz-border-radius:3px;
+  border-radius:3px;
+}
+
+.item.maximized:hover .zoom_button {
+  background-image:url('/images/zoom_out.png');
+  -moz-border-radius:3px;
+  border-radius:3px;
+}
+
+.maximize_on_hover:hover .zoom_button {
+  display: none;
+}
+
+.edit_form {
+  position: absolute;
+  width: 255px;
+  height: 300px;
+  border: 1px solid #000;
+  padding: 5px 5px 5px 5px;
+  background-color: #ffc;
+}
+
+.edit_form label {
+  display: block;
+  clear: left;
+}
+
+.edit_form input {
+  display: block;
+  clear: right;
+  width: 250px;
+}
+
+.edit_form button {
+  margin-top: 5px;
+}
+
+.edit_form textarea {
+  width: 250px;
+  height: 75px;
+}
+
+.chart {
+  clear: both;
+  text-align: center;
+}
+
+.chart a {
+  text-decoration: underline;
+  font-size: 10px;
+}
+
+.no_chart {
+  margin: 2px auto;
+  width: 350px;
+  text-align: center;
+  height: 25px;
+  background-color: #fcc;
+  padding: 10px 2px 2px 2px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.sprint_not_started {
+  margin: 2px auto;
+  width: 600px;
+  text-align: center;
+  height: 25px;
+  background-color: #fc9;
+  padding: 10px 2px 2px 2px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.chart .sprint_not_started a {
+  font-size: 12px;
+}

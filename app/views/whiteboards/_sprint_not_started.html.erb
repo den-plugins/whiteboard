@@ -1,0 +1,11 @@
+<div class="sprint_not_started">This sprint has not started yet. <a href="#" id="start_sprint_<%= params[:id] %>">Start this sprint now</a> to begin charting its progress.</div>
+<script type="text/javascript">
+//<![CDATA[
+  function start_sprint(e){
+    Rbw.Whiteboard.find_by_id(<%= params[:id] %>).start_sprint();
+    e.preventDefault();
+  }
+
+  $('start_sprint_<%= params[:id] %>').observe('click', start_sprint);
+//]]>
+</script>
